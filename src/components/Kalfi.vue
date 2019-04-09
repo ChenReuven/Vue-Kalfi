@@ -1,14 +1,24 @@
 <template>
-  <div class="kalfi">
-    <v-card class="card" v-for="card in kalfiCards" v-on:click="vote(card)">
-      <h3>{{card.text}}</h3>
-      <h4>{{card.subText}}</h4>
-    </v-card>
-    <div>
-      <h3>תוצאות</h3>
-      <div>{{counter}}</div>
-    </div>
-  </div>
+  <v-container grid-list-md text-xs-center>
+    <v-layout row>
+      <v-flex xs6>
+        <v-card
+          dark
+          color="primary"
+          class="card"
+          v-for="card in kalfiCards"
+          v-on:click="vote(card)"
+        >
+          <h3>{{card.text}}</h3>
+          <h4>{{card.subText}}</h4>
+        </v-card>
+      </v-flex>
+      <v-flex xs6>
+        <h3>תוצאות</h3>
+        <div v-for="miflaga in results">{{miflaga.value}} - {{miflaga.text}}</div>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -23,20 +33,20 @@ export interface KalfiCard {
 @Component
 export default class KalfiComponent extends Vue {
   kalfiCards: KalfiCard[] = [
-    { type: "A", text: "פה", subText: "בראשות בני גנץ ויאיר לפיד" },
-    { type: "B", text: "מחל", subText: "בראשות בנימין נתניהו" },
-    { type: "C", text: "אמת", subText: "בראשות אבי גבאי" },
-    { type: "D", text: "ז", subText: "בראשות משה פייגלין" }
+    { type: "A", text: '"פה"', subText: "בראשות בני גנץ ויאיר לפיד" },
+    { type: "B", text: '"מחל"', subText: "בראשות בנימין נתניהו" },
+    { type: "C", text: '"אמת"', subText: "בראשות אבי גבאי" },
+    { type: "D", text: '"ז"', subText: "בראשות משה פייגלין" }
   ];
-  counter = {
-    A: 0,
-    B: 0,
-    C: 0,
-    D: 0
+  results = {
+    A: { value: 0, text: '"פה"' },
+    B: { value: 0, text: '"מחל"' },
+    C: { value: 0, text: '"אמת' },
+    D: { value: 0, text: '"ז"' }
   };
 
   vote(card: KalfiCard) {
-    this.counter[card.type] += 1 || 0;
+    this.results[card.type].value += 1 || 0;
   }
 }
 </script>
