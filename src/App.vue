@@ -1,32 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
-    <kalfi></kalfi>
-  </div>
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>Kalfi</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn flat href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
+        <span class="mr-2">Chen Reuven Github</span>
+      </v-btn>
+    </v-toolbar>
+
+    <v-content>
+      <!-- <HelloWorld/> -->
+      <Kalfi></Kalfi>
+    </v-content>
+  </v-app>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
-import Kalfi from "./components/Kalfi.vue";
+<script>
+import HelloWorld from "./components/HelloWorld";
+import Kalfi from "./components/Kalfi";
 
-@Component({
+export default {
+  name: "App",
   components: {
     HelloWorld,
     Kalfi
+  },
+  data() {
+    return {
+      //
+    };
   }
-})
-export default class App extends Vue {}
+};
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
