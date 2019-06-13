@@ -37,7 +37,7 @@ export default class KalfiComponent extends Vue {
     { type: "B", text: '"מחל"', subText: "בראשות בנימין נתניהו" },
     { type: "C", text: '"אמת"', subText: "בראשות אבי גבאי" },
     { type: "D", text: '"ז"', subText: "בראשות משה פייגלין" }
-  ];
+  ];//
   results = {
     A: { value: 0, text: '"פה"' },
     B: { value: 0, text: '"מחל"' },
